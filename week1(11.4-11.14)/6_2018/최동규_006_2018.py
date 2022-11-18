@@ -1,5 +1,5 @@
 # 연속된 자연수의 합 구하기
-# 성공 여부: 시간초과
+# 성공 여부: O
 
 import sys
 N = int(sys.stdin.readline())
