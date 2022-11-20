@@ -1,5 +1,5 @@
 # 구간합 구하기5
-# 성공여부:
+# 성공여부: O
 
 import sys
 N, M = map(int, sys.stdin.readline().split())
