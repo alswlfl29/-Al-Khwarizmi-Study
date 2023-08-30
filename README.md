@@ -1,4 +1,4 @@
-# Al-Khwarizmi-Study
+# JS-Algorithm-Study
 1. repository를 fork 후, clone합니다. (초기 1회만) 
 
 2. fork한 repository 최신화 방법 <br>
