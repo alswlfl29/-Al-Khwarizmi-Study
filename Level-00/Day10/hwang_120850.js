@@ -2,4 +2,4 @@
 
 function solution(my_string) {}
 
-console.log(solution());
+console.log(solution('hi12392'));
