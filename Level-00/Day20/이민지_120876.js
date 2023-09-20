@@ -4,18 +4,31 @@
           lines가 [[0, 2], [-3, -1], [-2, 1]]일 때 그림으로 나타내면 다음과 같습니다.
           선분이 두 개 이상 겹친 곳은 [-2, -1], [0, 1]로 길이 2만큼 겹쳐있습니다.
 */
+
 function solution(lines) {
-  var answer = 0;
-  for (let i = 0; i < lines.length; i++) {
-    for (let j = i + 1; j < lines.length; j++) {
-      let min = Math.min(lines[i][0], lines[j][0]);
-      let max = Math.max(lines[i][1], lines[j][1]);
-      console.log(min, max);
-      let newArr = new Array(max - min + 1).fill(0);
-    }
-  }
-  return answer;
+  let line = new Array(200).fill(0); // 선분의 길이를 담을 배열
+
+  lines.forEach(([a, b]) => {
+    for (; a < b; a++) line[a + 100]++; // 중앙값을 0으로 맞추기 위해 100 더해주기
+  });
+  return line.reduce((a, c) => (c > 1 ? a + 1 : a), 0);
 }
+
+/**
+ * 틀린 코드
+ * function solution(lines) {
+      var answer = 0;
+      for (let i = 0; i < lines.length; i++) {
+        for (let j = i + 1; j < lines.length; j++) {
+          let min = Math.min(lines[i][0], lines[j][0]);
+          let max = Math.max(lines[i][1], lines[j][1]);
+          console.log(min, max);
+          let newArr = new Array(max - min + 1).fill(0);
+        }
+      }
+      return answer;
+    }
+*/
 
 console.log(
   solution([
@@ -25,4 +38,4 @@ console.log(
   ])
 );
 
-// 실패
+// 풀이 참고

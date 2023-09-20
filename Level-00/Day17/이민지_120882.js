@@ -3,24 +3,9 @@
           영어 점수와 수학 점수를 담은 2차원 정수 배열 score가 주어질 때, 영어 점수와 수학 점수의 평균을 기준으로 매긴 등수를 담은 배열을 return하도록 solution 함수를 완성해주세요.
 */
 function solution(score) {
-  var answer = Array.from({ length: score.length }, () => 0);
-  let rank = 1;
-  let avg = score.map((x, index) => {
-    return [(x[0] + x[1]) / 2, index];
-  });
-  avg.sort((a, b) => {
-    return b[0] - a[0];
-  });
-  let stack = [avg[0]];
-  while (stack.length > 0) {
-    for (let i = 1; i < avg.length; i++) {
-      if (stack[stack.length - 1][0] > avg[i][0]) {
-        let item = stack.pop();
-        answer[item[1]] = rank;
-      }
-    }
-  }
-  return answer;
+  let avg = score.map((x) => (x[0] + x[1]) / 2); // 각 score 평균 점수 구하기
+  let sorted = avg.slice().sort((a, b) => b - a); // 각 평균 점수를 내림차순으로 정렬
+  return avg.map((v) => sorted.indexOf(v) + 1);
 }
 
 console.log(
@@ -35,4 +20,4 @@ console.log(
   ])
 );
 
-// 실패
+// 풀이 참고

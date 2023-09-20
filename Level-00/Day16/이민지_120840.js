@@ -5,19 +5,36 @@
 
 // 조합문제
 function solution(balls, share) {
-  var answer = 0;
-  let molecule = 1;
-  let denominator = 1;
-  for (let i = balls; i >= share; i--) {
-    molecule *= i;
-  }
-  for (let i = share; i > 0; i--) {
-    denominator *= i;
-  }
-  answer = molecule / denominator;
-  return answer;
+  return factorial(balls) / (factorial(balls - share) * factorial(share));
 }
+function factorial(n) {
+  let returnFactorial = BigInt(1);
+  for (let i = n; i >= 2; i--) {
+    returnFactorial *= BigInt(i);
+  }
+  return returnFactorial;
+}
+/**
+ * 실패 코드
+ * function solution(balls, share) {
+      var answer = 0;
+      let molecule = 1;
+      let denominator1 = 1;
+      let denominator2 = 1;
+      for (let i = 1; i <= balls; i++) {
+        molecule *= i;
+      }
+      for (let i = 1; i <= share; i++) {
+        denominator1 *= i;
+      }
+      for (let i = 1; i <= balls - share; i++) {
+        denominator2 *= i;
+      }
+      answer = molecule / (denominator1 * denominator2);
+      return answer;
+    }
+ */
 
 console.log(solution(5, 3));
 
-// 실패
+// 풀이참고
