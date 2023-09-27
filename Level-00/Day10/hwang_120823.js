@@ -1,24 +1,27 @@
 // 직각삼각형 출력하기
 // 못품..
 
-// const readline = require('readline');
-// const rl = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout,
-// });
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
-// let input = [];
+let input = [];
 
-// rl.on('line', function (line) {
-//   input = line.split(' ');
-// }).on('close', function () {
-//   let num = Number(input[0]);
-//   for (let a = 0; a < num; a++) {
-//     for (let b = 0; b < a; b++) {
-//       console.log('*');
-//     }
-//   }
-// });
+rl.on('line', function (line) {
+  input = line.split(' ');
+}).on('close', function () {
+  let num = Number(input[0]);
+
+  for (let a = 1; a <= num; a++) {
+    let arr = [];
+    for (let b = 1; b <= a; b++) {
+      arr.push('*');
+    }
+    console.log(arr);
+  }
+});
 
 // 대부분 repeat을 많이 사용했고
 // for(let i = 1; i < n + 1; i++) {
