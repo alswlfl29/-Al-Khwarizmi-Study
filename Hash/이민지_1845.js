@@ -26,22 +26,3 @@ function solution(nums) {
 console.log(solution([3, 1, 2, 3])); // 2
 console.log(solution([3, 3, 3, 2, 2, 4])); // 3
 console.log(solution([3, 3, 3, 2, 2, 2])); // 2
-/**
- * 해시(Hash)
- * - 키(key)와 값(value)을 한 쌍으로 갖는 데이터 구조
- * - 키 = 무언가를 찾기 위한 검색어
- * - 값 = 그 검색어로 나온 결과
- * - 반복되는 값이 없어야 함
- * <사용법>
- * 1. HashMap 생성
- * 2. put(key, value) : 데이터 추가
- * 3. get(key) : 데이터 조회
- * 4. getOrDefault(key, defaultValue) : 데이터 조회, 값이 없을 경우 기본값 반환
- *
- * <JS에서 해시 구현>
- * 1. Map 생성으로 해시 구현(Map은 키-값 쌍과 키의 원래 삽입 순서를 기억하는 콜렉션)
- * 2. 삽입: set(key, value)
- * 3. 조회: get(key)
- * 4. 삭제: delete(key)
- * 5. 키-값 쌍 개수: size
- */
