@@ -2,7 +2,6 @@
 
 function solution(numbers) {
   numbers = numbers.map(String);
-  console.log(numbers);
   numbers.sort(function (x, y) {
     return y + x - (x + y);
   });
