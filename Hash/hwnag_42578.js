@@ -1,55 +1,58 @@
 //의상
 
 //테스트케이스에서 오류가 너무 많이 나옴
-// function solution(clothes) {
-//   let map = new Map();
-//   for (let i = 0; i < clothes.length; i++) {
-//     let cnt = 1;
-//     let category = clothes[i][1];
-//     if (map.has(category)) {
-//       map.set(category, cnt + 1);
-//     } else {
-//       map.set(category, cnt);
-//     }
-//   }
-//   if (map.size == 1) {
-//     return clothes.length;
-//   } else {
-//     let ans = 1;
-//     map.forEach((count) => {
-//       ans *= count + 1; // (종류별 의상 개수)+1, +1 이유는 아무것도 선택하지 않는 경우도 포함하기 위해
-//     });
+function solution(clothes) {
+  let map = new Map();
+  for (let i = 0; i < clothes.length; i++) {
+    let cnt = 1;
+    let category = clothes[i][1];
+    if (map.has(category)) {
+      map.set(category, cnt + 1);
+    } else {
+      map.set(category, cnt);
+    }
+  }
+  if (map.size == 1) {
+    return clothes.length;
+  } else {
+    let ans = 1;
+    map.forEach((count) => {
+      ans *= count + 1; // (종류별 의상 개수)+1, +1 이유는 아무것도 선택하지 않는 경우도 포함하기 위해
+    });
 
-//     return ans - 1;
-//   }
-// }
+    return ans - 1;
+  }
+}
 // +1 하는 이유 예시
 // 만약, 상의가 스웨터, 반팔, 와이셔츠 이렇게 3 종류가 있다면
 // 가능한 경우의 수는 스웨터, 반팔, 와이셔츠, 아무것도 선택 안 함 이렇게 4가지가 있다
 // -> 종류별 의상 개수에 1을 더하는 이유
 
+// 만약, 상의 3개, 하의 2개, 장신구 2개가 있었다고 가정하면, 총 가능한 경우의 수는 (3+1) * (2+1) * (2+1) = 36가지 이다.
+// 그런데, 이 경우에는 (상의 선택 안 함, 하의 선택 안 함, 장신구 선택 안 함)이 포함되어 있으므로 그 경우를 빼주는 것이다 -> 마지막에 1을 뺴주는 이유
+
 // 참조
 // 뭐가 다른거지
-function solution(clothes) {
-  let answer = 1;
-  const dic = {};
+// function solution(clothes) {
+//   let answer = 1;
+//   const dic = {};
 
-  for (let i = 0; i < clothes.length; i++) {
-    const kind = clothes[i][1];
-    if (dic[kind] !== undefined) {
-      dic[kind] += 1;
-    } else {
-      dic[kind] = 1;
-    }
-  }
+//   for (let i = 0; i < clothes.length; i++) {
+//     const kind = clothes[i][1];
+//     if (dic[kind] !== undefined) {
+//       dic[kind] += 1;
+//     } else {
+//       dic[kind] = 1;
+//     }
+//   }
 
-  for (let k in dic) {
-    answer *= dic[k] + 1;
-  }
+//   for (let k in dic) {
+//     answer *= dic[k] + 1;
+//   }
 
-  answer -= 1;
-  return answer;
-}
+//   answer -= 1;
+//   return answer;
+// }
 
 console.log(
   solution([
