@@ -22,10 +22,15 @@ function solution(n, wires) {
   });
 
   // 2. searchTree 함수 정의
+  // 이 함수는 시작 노드 root와 예외 노드 exception을 받아서, 시작 노드를 루트로 하는 서브 그래프의 크기를 반환합니다.
   const searchTree = (root, exception) => {
-    let count = 0;
-    const queue = [root];
-    const visited = [];
+    let count = 0; // 서브 그래프의 크기를 추적
+    const queue = [root]; // 너비 우선 탐색(BFS)을 구현하기 위한 큐
+    const visited = []; // 이미 방문한 노드를 추적
+
+    // BFS를 사용하여 root에서 시작하여 연결된 모든 노드를 방문하고, exception 노드를 제외합니다.
+    // BFS를 수행하면서 방문한 노드의 수를 count에 누적합니다.
+    // BFS가 완료되면 count를 반환
     visited[root] = true;
     while (queue.length) {
       const cur = queue.pop();
