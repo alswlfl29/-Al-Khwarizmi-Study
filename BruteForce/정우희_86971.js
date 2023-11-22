@@ -10,6 +10,7 @@
 //           1에서 출발한 서브트리와 5에서 출발한 서브트리의 노드 갯수를 세고, 이 갯수의 차이를 answer과 비교하여 answer 값을 갱신함.
 
 function solution(n, wires) {
+  // 1. links 객체 초기화
   const links = {};
   wires.map((w) => {
     // 풀이과정 1
@@ -20,6 +21,7 @@ function solution(n, wires) {
     links[b].push(a);
   });
 
+  // 2. searchTree 함수 정의
   const searchTree = (root, exception) => {
     let count = 0;
     const queue = [root];
@@ -38,12 +40,15 @@ function solution(n, wires) {
     return count;
   };
 
+  // 최소값을 저장할 변수 초기화
   let answer = 100;
+
   wires.map((w, i) => {
     // 풀이과정 2
     const [a, b] = w;
     const dif = Math.abs(searchTree(a, b) - searchTree(b, a));
     answer = answer > dif ? dif : answer;
   });
+
   return answer;
 }
